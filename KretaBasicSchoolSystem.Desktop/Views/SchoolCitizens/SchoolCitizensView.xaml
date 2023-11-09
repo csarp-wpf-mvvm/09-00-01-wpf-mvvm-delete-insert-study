@@ -9,7 +9,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label>Iskolapolgárok</Label>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <local:SchoolCitizensMenu Grid.Row="0"></local:SchoolCitizensMenu>
+        <ContentControl Grid.Row="1"></ContentControl>
     </Grid>
 </UserControl>
