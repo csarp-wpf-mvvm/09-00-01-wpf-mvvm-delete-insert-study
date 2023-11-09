@@ -19,7 +19,7 @@
     <None Remove="Images\key-icon.png" />
     <None Remove="Images\kreta.png" />
     <None Remove="Images\kreta_atl.png" />
-    <None Remove="Images\noprofil.jpg" />
+    <None Remove="Images\profil.jpg" />
     <None Remove="Images\profile.png" />
     <None Remove="Images\user-icon.png" />
   </ItemGroup>
@@ -36,7 +36,7 @@
     <Resource Include="Images\key-icon.png" />
     <Resource Include="Images\kreta.png" />
     <Resource Include="Images\kreta_atl.png" />
-    <Resource Include="Images\noprofil.jpg" />
+    <Resource Include="Images\profil.jpg" />
     <Resource Include="Images\profile.png" />
     <Resource Include="Images\user-icon.png" />
   </ItemGroup>

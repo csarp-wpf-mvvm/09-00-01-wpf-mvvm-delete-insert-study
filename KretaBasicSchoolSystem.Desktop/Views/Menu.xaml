@@ -28,7 +28,7 @@
                             StrokeThickness="2"                                 
                             Margin="-1,-1,-1,-1">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="/Images/noprofil.jpg"/>
+                                <ImageBrush ImageSource="/Images/profil.jpg"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>

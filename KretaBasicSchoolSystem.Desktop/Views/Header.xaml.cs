@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace KretaBasicSchoolSystem.Desktop.Views
 {
     /// <summary>
-    /// Interaction logic for UserOptionControl.xaml
+    /// Interaction logic for Header.xaml
     /// </summary>
-    public partial class UserOptionControl : UserControl
+    public partial class Header : UserControl
     {
-        public UserOptionControl()
+        public Header()
         {
             InitializeComponent();
         }
