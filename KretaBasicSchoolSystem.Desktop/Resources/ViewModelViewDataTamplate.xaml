@@ -11,4 +11,7 @@
     <DataTemplate DataType="{x:Type schoolCitizensViewModels:SchoolCitizensViewModel}">
         <schoolCitizensView:SchoolCitizensView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type schoolCitizensViewModels:StudentViewModel}">
+        <schoolCitizensView:StudentView/>
+    </DataTemplate>
 </ResourceDictionary>

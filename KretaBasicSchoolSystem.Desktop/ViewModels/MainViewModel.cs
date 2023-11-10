@@ -12,15 +12,6 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels
         private ControlPanelViewModel _controlPanelViewModel;
         private SchoolCitizensViewModel _schoolCitizensViewModel;
 
-        [ObservableProperty]
-        private string _caption = string.Empty;
-
-        [ObservableProperty]
-        private IconChar _icon = new IconChar();
-
-        [ObservableProperty]
-        private BaseViewModel _currentChildView;
-
         public MainViewModel()
         {
             _controlPanelViewModel = new ControlPanelViewModel();
@@ -39,6 +30,15 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels
             CurrentChildView = _controlPanelViewModel;
             ShowDashbord();
         }
+
+        [ObservableProperty]
+        private string _caption = string.Empty;
+
+        [ObservableProperty]
+        private IconChar _icon = new IconChar();
+
+        [ObservableProperty]
+        private BaseViewModel _currentChildView;
 
         [RelayCommand]
         public void ShowDashbord()
