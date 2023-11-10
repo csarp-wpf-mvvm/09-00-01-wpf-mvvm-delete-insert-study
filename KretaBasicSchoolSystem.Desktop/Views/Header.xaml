@@ -16,7 +16,6 @@
 
             <!-- User options -->
             <local:UserOption Grid.Column="1"/>
-
             <!--Caption -->
             <local:Caption Grid.Column="0" />
 
