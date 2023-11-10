@@ -14,6 +14,6 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <local:SchoolCitizensMenu Grid.Row="0"></local:SchoolCitizensMenu>
-        <ContentControl Grid.Row="1"></ContentControl>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentSchoolCitizensChildView }"></ContentControl>
     </Grid>
 </UserControl>
