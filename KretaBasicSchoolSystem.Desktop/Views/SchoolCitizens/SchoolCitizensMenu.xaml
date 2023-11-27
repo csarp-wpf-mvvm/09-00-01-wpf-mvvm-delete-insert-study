@@ -16,6 +16,7 @@
                 Width="150"
                 Margin="32 0 0 0"
                 Content="Tanárok"
+                Command="{Binding ShowTeacherViewCommand}"
             />
             <Button 
                 Style="{StaticResource subMenuButton}"
@@ -31,6 +32,7 @@
                 Width="150"
                 Margin="12 0 0 0"
                 Content="Szülők"
+                Command="{Binding ShowParentViewCommand}"
              />
         </StackPanel>
     </Border>
