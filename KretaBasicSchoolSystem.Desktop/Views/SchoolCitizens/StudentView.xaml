@@ -3,10 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xwpftk="http://schemas.xceed.com/wpf/xaml/toolkit" 
              xmlns:local="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolCitizens"
+             xmlns:viewmodel="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:StudentViewModel />
+    </UserControl.DataContext>
     <Grid>
-        <Label>Diákok</Label>           
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Diák adatok</Label>
+        <Label Grid.Row="1" Grid.Column="0">Vezeték név:</Label>
+        <Label Grid.Row="2" Grid.Column="0">Kereszt név:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Születési év:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Évfolyam:</Label>
+        <Label Grid.Row="5" Grid.Column="0">Osztály:</Label>
+        <Label Grid.Row="6" Grid.Column="0">Tanulmányi szint:</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2" Margin="10 2 2 2">
+            <Button  Margin="0 10 2 2" HorizontalAlignment="Right" MinWidth="80" Content="Új adat"
+                     Command="{Binding DoNewStudentCommand}"
+                     />
+                        <Button  Margin="0 10 2 2" HorizontalAlignment="Right" MinWidth="80" Content="Mentés"
+                     Command="{Binding DoSaveCommand}"
+                     CommandParameter="{Binding SelectedStudent}"
+                     />
+                        <Button Margin="0 10 2 2" HorizontalAlignment="Right" MinWidth="80" Content="Törlés" 
+                     Command="{Binding DoRemoveCommand}"
+                     CommandParameter="{Binding SelectedStudent}"
+                    />
+        </StackPanel>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedStudent.LastName}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedStudent.FirstName}"></TextBox>
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" SelectedDate="{Binding SelectedStudent.BirthsDay}"></DatePicker>
+        <xwpftk:IntegerUpDown Grid.Row="4" Grid.Column="1" Margin="2 2 100 2" Minimum="9" Maximum="14" Value="{Binding SelectedStudent.SchoolYear}"></xwpftk:IntegerUpDown>
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <RadioButton GroupName="schoolclass" Margin="2 4 2 2">a  osztály</RadioButton>
+            <RadioButton GroupName="schoolclass" Margin="2 4 2 2">b  osztály</RadioButton>
+            <RadioButton GroupName="schoolclass" Margin="2 4 2 2">c  osztály</RadioButton>
+        </StackPanel>
+        <ComboBox Grid.Row="6" Grid.Column="1" Margin="2 2 2 2"
+                 ItemsSource="{Binding EducationLevels}"
+                 SelectedItem="{Binding SelectedEducationLevel}"
+                 SelectedIndex="0">
+        </ComboBox>
+        <ListBox Grid.Row="8"
+          Grid.ColumnSpan="2" 
+          Margin="10 2 10 10"
+          ItemsSource="{Binding Students}"
+          SelectedItem="{Binding SelectedStudent}"
+        />
     </Grid>
 </UserControl>
+
