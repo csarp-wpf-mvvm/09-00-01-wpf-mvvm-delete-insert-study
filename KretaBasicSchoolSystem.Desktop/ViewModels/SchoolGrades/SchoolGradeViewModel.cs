@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 
-namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrade
+namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
 {
     public partial class SchoolGradeViewModel : BaseViewModel
     {
@@ -13,7 +13,7 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrade
 
         public SchoolGradeViewModel()
         {
-            _currentSchoolGradeChildView = new CurrentSchoolHoursViewModel();
+            CurrentChildViewModel = new SchoolGradeViewModel();
             _currentSchoolHoursViewModel = new CurrentSchoolHoursViewModel();
             _taughtClassesViewModel = new TaughtClassesViewModel();
             _closingSemesterGradeViewModel = new ClosingSemesterGradeViewModel();
@@ -31,34 +31,34 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrade
             _closingSemesterGradeViewModel = closingSemesterGradeViewModel;
             _closingEndOfYearGradeViewModel = closingEndOfYearGradeViewModel;
 
-            _currentSchoolGradeChildView = new SchoolGradeViewModel();
+            CurrentChildViewModel = new SchoolGradeViewModel();
         }
 
         [ObservableProperty]
-        private BaseViewModel _currentSchoolGradeChildView;
+        private BaseViewModel _currentChildViewModel;
 
         [RelayCommand]
         public void ShowAktualisOraView()
         {
-            CurrentSchoolGradeChildView = _currentSchoolHoursViewModel;
+            CurrentChildViewModel = _currentSchoolHoursViewModel;
         }
 
         [RelayCommand]
         public void ShowTanitottOsztalyokView()
         {
-            CurrentSchoolGradeChildView = _taughtClassesViewModel;
+            CurrentChildViewModel = _taughtClassesViewModel;
         }
 
         [RelayCommand]
         public void ShowFelevZarasView()
         {
-            CurrentSchoolGradeChildView = _closingSemesterGradeViewModel;
+            CurrentChildViewModel = _closingSemesterGradeViewModel;
         }
 
         [RelayCommand]
         public void ShowEvVegeZarasView()
         {
-            CurrentSchoolGradeChildView = _closingEndOfYearGradeViewModel;
+            CurrentChildViewModel = _closingEndOfYearGradeViewModel;
         }
     }
 }
