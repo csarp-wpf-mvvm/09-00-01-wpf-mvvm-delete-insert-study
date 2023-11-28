@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KretaBasicSchoolSystem.Desktop.Views"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:viewModels="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"       
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="250">
     <StackPanel>
@@ -48,14 +50,17 @@
                         Style="{StaticResource menuButton}"
                         Tag="{StaticResource colorMidleGreen}"
                         Command="{Binding ShowSchoolCitizensCommand}"                    
-                     >
+                        >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Iskolapolgárok" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource colorMidleGreen}">
+                    <RadioButton 
+                        Style="{StaticResource menuButton}"
+                        Tag="{StaticResource colorMidleGreen}"
+                        Command="{Binding ShowSchoolClassesCommand}"
+                        >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="ChalkboardUser" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Osztályok" Style="{StaticResource menuButtonText}"/>
@@ -64,16 +69,18 @@
                     <RadioButton
                         Style="{StaticResource menuButton}"
                         Tag="{StaticResource colorMidleGreen}"
-                        Command="{Binding SchowSchoolSubjectCommand}"         >
+                        Command="{Binding SchowSchoolSubjectCommand}"
+                        >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="GraduationCap" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Tantárgyak" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource colorMidleGreen}"
-                             Command="{Binding ShowSchoolGradeCommand}"
-                    >
+                    <RadioButton 
+                        Style="{StaticResource menuButton}"                             
+                        Tag="{StaticResource colorMidleGreen}"
+                        Command="{Binding ShowSchoolGradeCommand}"
+                        >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGraduate" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Osztályzatok" Style="{StaticResource menuButtonText}"/>

@@ -2,7 +2,7 @@
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolClasses
 {
-    class SchoolClassesViewModel : BaseViewModel
+    public class SchoolClassesViewModel : BaseViewModel
     {
     }
 }
