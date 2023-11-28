@@ -2,7 +2,7 @@
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolSubjects
 {
-    public class SubjectsViewModel : BaseViewModel
+    public class SchoolClassSubjectsViewModel : BaseViewModel
     {
     }
 }

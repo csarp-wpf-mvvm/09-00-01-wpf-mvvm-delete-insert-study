@@ -61,8 +61,10 @@
                             <TextBlock Text="Osztályok" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource colorMidleGreen}">
+                    <RadioButton
+                        Style="{StaticResource menuButton}"
+                        Tag="{StaticResource colorMidleGreen}"
+                        Command="{Binding SchowSchoolSubjectCommand}"         >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="GraduationCap" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Tantárgyak" Style="{StaticResource menuButtonText}"/>
