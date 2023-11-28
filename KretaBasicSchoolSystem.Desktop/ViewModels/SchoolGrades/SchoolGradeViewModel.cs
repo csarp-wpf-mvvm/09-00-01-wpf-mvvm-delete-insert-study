@@ -57,7 +57,7 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
         }
 
         [RelayCommand]
-        public void SchoClosingEndOfYearGrade()
+        public void SchowClosingEndOfYearGrade()
         {
             CurrentChildViewModel = _closingEndOfYearGradeViewModel;
         }
