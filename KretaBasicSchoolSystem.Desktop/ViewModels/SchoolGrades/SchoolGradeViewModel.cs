@@ -13,11 +13,12 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
 
         public SchoolGradeViewModel()
         {
-            CurrentChildViewModel = new SchoolGradeViewModel();
+            /* CurrentChildViewModel = new CurrentSchoolHoursViewModel();
+
             _currentSchoolHoursViewModel = new CurrentSchoolHoursViewModel();
             _taughtClassesViewModel = new TaughtClassesViewModel();
             _closingSemesterGradeViewModel = new ClosingSemesterGradeViewModel();
-            _closingEndOfYearGradeViewModel = new ClosingEndOfYearGradeViewModel();
+            _closingEndOfYearGradeViewModel = new ClosingEndOfYearGradeViewModel();*/
         }
 
         public SchoolGradeViewModel(
@@ -26,15 +27,15 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
             ClosingSemesterGradeViewModel closingSemesterGradeViewModel, 
             ClosingEndOfYearGradeViewModel closingEndOfYearGradeViewModel)
         {
-            _currentSchoolHoursViewModel = currentSchoolHoursViewModel;
+         /*   _currentSchoolHoursViewModel = currentSchoolHoursViewModel;
             _taughtClassesViewModel = taughtClassesViewModel;
             _closingSemesterGradeViewModel = closingSemesterGradeViewModel;
             _closingEndOfYearGradeViewModel = closingEndOfYearGradeViewModel;
 
-            CurrentChildViewModel = new SchoolGradeViewModel();
+            CurrentChildViewModel = new CurrentSchoolHoursViewModel();*/
         }
 
-        [ObservableProperty]
+     /*   [ObservableProperty]
         private BaseViewModel _currentChildViewModel;
 
         [RelayCommand]
@@ -59,6 +60,6 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
         public void ShowEvVegeZarasView()
         {
             CurrentChildViewModel = _closingEndOfYearGradeViewModel;
-        }
+        }*/
     }
 }

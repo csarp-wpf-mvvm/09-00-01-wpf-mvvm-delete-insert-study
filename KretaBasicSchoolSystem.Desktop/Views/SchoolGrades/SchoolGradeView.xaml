@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolGrades"             
-             xmlns:viewModels="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades"
+     		 xmlns:viewModels="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades"    
              d:DataContext="{d:DesignInstance Type=viewModels:SchoolGradeViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -15,6 +15,5 @@
         </Grid.RowDefinitions>
         <local:SchoolGradeMenu Grid.Row="0"></local:SchoolGradeMenu>
         <ContentControl Grid.Row="1" Content="{Binding CurrentSchoolOsztalyzatokChildView }"></ContentControl>
-
     </Grid>
 </UserControl>
