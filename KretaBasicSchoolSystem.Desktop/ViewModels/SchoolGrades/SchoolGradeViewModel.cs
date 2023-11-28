@@ -13,53 +13,53 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades
 
         public SchoolGradeViewModel()
         {
-            /* CurrentChildViewModel = new CurrentSchoolHoursViewModel();
+            CurrentChildViewModel = new CurrentSchoolHoursViewModel();
 
             _currentSchoolHoursViewModel = new CurrentSchoolHoursViewModel();
             _taughtClassesViewModel = new TaughtClassesViewModel();
             _closingSemesterGradeViewModel = new ClosingSemesterGradeViewModel();
-            _closingEndOfYearGradeViewModel = new ClosingEndOfYearGradeViewModel();*/
+            _closingEndOfYearGradeViewModel = new ClosingEndOfYearGradeViewModel();
         }
 
         public SchoolGradeViewModel(
-            CurrentSchoolHoursViewModel currentSchoolHoursViewModel, 
-            TaughtClassesViewModel taughtClassesViewModel, 
-            ClosingSemesterGradeViewModel closingSemesterGradeViewModel, 
+            CurrentSchoolHoursViewModel currentSchoolHoursViewModel,
+            TaughtClassesViewModel taughtClassesViewModel,
+            ClosingSemesterGradeViewModel closingSemesterGradeViewModel,
             ClosingEndOfYearGradeViewModel closingEndOfYearGradeViewModel)
         {
-         /*   _currentSchoolHoursViewModel = currentSchoolHoursViewModel;
+            _currentSchoolHoursViewModel = currentSchoolHoursViewModel;
             _taughtClassesViewModel = taughtClassesViewModel;
             _closingSemesterGradeViewModel = closingSemesterGradeViewModel;
             _closingEndOfYearGradeViewModel = closingEndOfYearGradeViewModel;
 
-            CurrentChildViewModel = new CurrentSchoolHoursViewModel();*/
+            CurrentChildViewModel = new CurrentSchoolHoursViewModel();
         }
 
-     /*   [ObservableProperty]
+        [ObservableProperty]
         private BaseViewModel _currentChildViewModel;
 
         [RelayCommand]
-        public void ShowAktualisOraView()
+        public void ShowCurrentSchoolHours()
         {
             CurrentChildViewModel = _currentSchoolHoursViewModel;
         }
 
         [RelayCommand]
-        public void ShowTanitottOsztalyokView()
+        public void ShowTaughtClasses()
         {
             CurrentChildViewModel = _taughtClassesViewModel;
         }
 
         [RelayCommand]
-        public void ShowFelevZarasView()
+        public void ShowClosingSemesterGrade()
         {
             CurrentChildViewModel = _closingSemesterGradeViewModel;
         }
 
         [RelayCommand]
-        public void ShowEvVegeZarasView()
+        public void SchoClosingEndOfYearGrade()
         {
             CurrentChildViewModel = _closingEndOfYearGradeViewModel;
-        }*/
+        }
     }
 }

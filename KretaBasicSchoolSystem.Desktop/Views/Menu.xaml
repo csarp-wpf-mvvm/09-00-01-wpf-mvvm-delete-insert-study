@@ -72,10 +72,10 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource colorMidleGreen}"
-                             Command="{Binding ShowGradeCommand}"
+                             Command="{Binding ShowSchoolGradeCommand}"
                     >
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="GraduationCap" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="UserGraduate" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Osztályzatok" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>

@@ -6,6 +6,8 @@
                     xmlns:schoolCitizensView="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolCitizens"
                     xmlns:schoolSubjectViewModels="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolSubjects"
                     xmlns:schoolSubjectView="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolSubjects"
+                    xmlns:schoolGradeViewModels="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolGrades"
+                    xmlns:schoolGradeView="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolGrades" 
                     >
     <DataTemplate DataType="{x:Type controlPanelViewModels:ControlPanelViewModel}">
         <controlPanelView:ControlPanelView/>
@@ -36,5 +38,22 @@
     <DataTemplate DataType="{x:Type schoolSubjectViewModels:SchoolClassSubjectsViewModel}">
         <schoolSubjectView:SchoolClassSubjectsView/>
     </DataTemplate>
+    <!-- School Grade -->
+    <DataTemplate DataType="{x:Type schoolGradeViewModels:SchoolGradeViewModel}">
+        <schoolGradeView:SchoolGradeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type schoolGradeViewModels:ClosingEndOfYearGradeViewModel}">
+        <schoolGradeView:ClosingEndOfYearGradeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type schoolGradeViewModels:ClosingSemesterGradeViewModel}">
+        <schoolGradeView:ClosingSemesterGradeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type schoolGradeViewModels:CurrentSchoolHoursViewModel}">
+        <schoolGradeView:CurrentSchoolHoursView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type schoolGradeViewModels:TaughtClassesViewModel}">
+        <schoolGradeView:TaughtClassesView/>
+    </DataTemplate>
+
 
 </ResourceDictionary>
