@@ -58,6 +58,11 @@ namespace KretaDesktop.Extensions
             {
                 DataContext = s.GetRequiredService<TeacherViewModel>()
             });
+            services.AddSingleton<ParentViewModel>();
+            services.AddSingleton<ParentView>(s => new ParentView()
+            {
+                DataContext = s.GetRequiredService<ParentViewModel>()
+            });
             // School classes
             services.AddSingleton<SchoolClassesViewModel>();
             services.AddSingleton<SchoolClassesView>(s => new SchoolClassesView()
