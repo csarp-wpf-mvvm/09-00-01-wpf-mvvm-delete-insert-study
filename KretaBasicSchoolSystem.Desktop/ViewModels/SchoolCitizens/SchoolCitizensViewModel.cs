@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
+using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
@@ -32,8 +33,9 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         private BaseViewModel _currentChildViewModel;
 
         [RelayCommand]
-        public void ShowStudentView()
+        public async Task ShowStudentView()
         {
+            await _studentViewModel.InitializeAsync();
             CurrentChildViewModel = _studentViewModel;
         }
 
