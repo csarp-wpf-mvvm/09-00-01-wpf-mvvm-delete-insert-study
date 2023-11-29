@@ -1,4 +1,5 @@
-﻿using KretaBasicSchoolSystem.Desktop.Views;
+﻿using KretaBasicSchoolSystem.Desktop.Extensions;
+using KretaBasicSchoolSystem.Desktop.Views;
 using KretaBasicSchoolSystem.Desktop.Views.Login;
 using KretaDesktop.Extensions;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,7 @@ namespace KretaBasicSchoolSystem.Desktop
                 .ConfigureServices(services =>
                 {
                     services.ConfigureViewViewModels();
+                    services.ConfigureHttpCliens();
                 })
                 .Build();
 
