@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
-    public partial class StudentViewModel : BaseViewModel
+    public partial class StudentViewModel : BaseViewModelWithAsyncInitialization
     {
         [ObservableProperty]
         private ObservableCollection<string> _educationLevels = new ObservableCollection<string>(new EducationLevels().AllEducationLevels);
