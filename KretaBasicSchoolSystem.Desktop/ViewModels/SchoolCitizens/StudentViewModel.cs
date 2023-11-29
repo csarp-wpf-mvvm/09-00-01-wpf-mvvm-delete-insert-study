@@ -6,7 +6,6 @@ using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
@@ -32,6 +31,12 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
                 SetProperty(ref _selectedEducationLevel, value);
                 SelectedStudent.EducationLevel = _selectedEducationLevel;
             }
+        }
+
+        public StudentViewModel()
+        {
+            SelectedStudent = new Student();
+            SelectedEducationLevel = _educationLevels[0];
         }
 
         public StudentViewModel(IStudentService? studentService)
