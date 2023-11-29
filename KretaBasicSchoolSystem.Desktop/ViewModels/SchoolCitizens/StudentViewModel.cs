@@ -1,13 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using KretaBasicSchoolSystem.Desktop.Models;
+using KretaBasicSchoolSystem.Desktop.Service;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
     public partial class StudentViewModel : BaseViewModelWithAsyncInitialization
-    {
+    {        
+        private readonly IStudentService? _studentService;
+
         [ObservableProperty]
         private ObservableCollection<string> _educationLevels = new ObservableCollection<string>(new EducationLevels().AllEducationLevels);
 
@@ -28,11 +34,13 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
             }
         }
 
-        public StudentViewModel()
+        public StudentViewModel(IStudentService? studentService)
         {
             //Students.Add(new Student("Elek", "Teszt", System.DateTime.Now, 9, SchoolClassType.ClassA, ""));
             SelectedStudent = new Student();
             SelectedEducationLevel = _educationLevels[0];
+
+            _studentService = studentService;
         }
 
         [RelayCommand]
@@ -53,6 +61,15 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         {
             Students.Remove(studentToDelete);
             OnPropertyChanged(nameof(Students));
+        }
+
+        public override async Task InitializeAsync()
+        {
+            if (_studentService is not null)
+            {
+                List<Student> students = await _studentService.SelectAllStudent();
+                Students = new ObservableCollection<Student>(students);
+            }                   
         }
     }
 }
