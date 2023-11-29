@@ -1,6 +1,7 @@
 ﻿using KretaBasicSchoolSystem.Desktop.Models;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.Service
@@ -14,9 +15,15 @@ namespace KretaBasicSchoolSystem.Desktop.Service
             _httpClient = httpClientFactory.CreateClient("KretaApi");
         }
 
-        public Task<List<Student>> SelectAllStudent()
+        public async Task<List<Student>> SelectAllStudent()
         {
-            throw new System.NotImplementedException();
+            if (_httpClient is object)
+            {
+                List<Student>? result = await _httpClient.GetFromJsonAsync<List<Student>>("api/Student");
+                if (result is object)
+                    return result;
+            }
+            return new List<Student>();
         }
     }
 }

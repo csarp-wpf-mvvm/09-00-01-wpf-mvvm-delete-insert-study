@@ -24,6 +24,7 @@ namespace KretaBasicSchoolSystem.Desktop
                 {
                     services.ConfigureViewViewModels();
                     services.ConfigureHttpCliens();
+                    services.ConfigureApiServices();
                 })
                 .Build();
 
