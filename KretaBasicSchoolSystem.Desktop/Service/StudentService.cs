@@ -8,11 +8,14 @@ namespace KretaBasicSchoolSystem.Desktop.Service
 {
     public class StudentService : IStudentService
     {
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient? _httpClient;
 
-        public StudentService(IHttpClientFactory httpClientFactory)
+        public StudentService(IHttpClientFactory? httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient("KretaApi");
+            if (httpClientFactory is not null)
+            {
+                _httpClient = httpClientFactory.CreateClient("KretaApi");
+            }
         }
 
         public async Task<List<Student>> SelectAllStudent()
