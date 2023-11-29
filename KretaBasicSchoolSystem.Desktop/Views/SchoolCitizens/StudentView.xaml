@@ -5,12 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:xwpftk="http://schemas.xceed.com/wpf/xaml/toolkit" 
              xmlns:local="clr-namespace:KretaBasicSchoolSystem.Desktop.Views.SchoolCitizens"
-             xmlns:viewmodel="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens"
+             xmlns:viewModel="clr-namespace:KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens"
+             d:DataContext="{d:DesignInstance Type=viewModel:StudentViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <viewmodel:StudentViewModel />
-    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
