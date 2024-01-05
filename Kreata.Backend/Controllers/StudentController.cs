@@ -1,4 +1,5 @@
 ﻿using Kreata.Backend.Datas.Entities;
+using Kreata.Backend.Datas.Responses;
 using Kreata.Backend.Repos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,6 +40,26 @@ namespace Kreata.Backend.Controllers
                 return Ok(users);
             }
             return BadRequest("Az adatok elérhetetlenek!");
+        }
+
+        [HttpPut()]
+        public async Task<ActionResult> UpdateStudentAsync(Student entity)
+        {
+            ControllerResponse response = new();
+            if (_studentRepo is not null)
+            {
+                response = await _studentRepo.UpdateStudentAsync(entity);
+                if (response.HasError)
+                {
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            response.ClearAndAddError("Az adatok frissítés nem lehetséges!");
+            return BadRequest(response);
         }
     }
 }
