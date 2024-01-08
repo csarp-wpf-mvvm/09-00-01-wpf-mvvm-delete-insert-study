@@ -1,4 +1,4 @@
-﻿using KretaBasicSchoolSystem.Desktop.Models;
+﻿using Kreta.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

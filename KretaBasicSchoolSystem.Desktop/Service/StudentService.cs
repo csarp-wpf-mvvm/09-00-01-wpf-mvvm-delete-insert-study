@@ -1,5 +1,7 @@
-﻿using KretaBasicSchoolSystem.Desktop.Models;
+﻿using Kreta.Shared.Dtos;
+using Kreta.Shared.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -22,9 +24,9 @@ namespace KretaBasicSchoolSystem.Desktop.Service
         {
             if (_httpClient is object)
             {
-                List<Student>? result = await _httpClient.GetFromJsonAsync<List<Student>>("api/Student");
+                List<StudentDto>? result = await _httpClient.GetFromJsonAsync<List<StudentDto>>("api/Student");
                 if (result is object)
-                    return result;
+                    return result.Select(studentDto => studentDto.ToStudent()).ToList();
             }
             return new List<Student>();
         }
