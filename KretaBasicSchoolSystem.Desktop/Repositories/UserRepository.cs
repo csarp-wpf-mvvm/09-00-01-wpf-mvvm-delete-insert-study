@@ -1,5 +1,4 @@
-﻿using KretaBasicSchoolSystem.Desktop.Models;
-using System;
+﻿using Kreta.Shared.Models;
 using System.Net;
 
 namespace KretaBasicSchoolSystem.Desktop.Repositories

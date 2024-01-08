@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using KretaBasicSchoolSystem.Desktop.Models;
+using Kreta.Shared.Models;
 using KretaBasicSchoolSystem.Desktop.Repositories;
 using System.Threading;
 
@@ -21,7 +21,9 @@ namespace KretaBasicSchoolSystem.Controls.ViewModels
         {
             if (Thread.CurrentPrincipal is not null && Thread.CurrentPrincipal.Identity is not null && Thread.CurrentPrincipal.Identity.Name is not null)
             {
+                // a backendről történik majd később az authentikáció
                 User? user = _userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+                
 
                 if (user is not null)
                 {
