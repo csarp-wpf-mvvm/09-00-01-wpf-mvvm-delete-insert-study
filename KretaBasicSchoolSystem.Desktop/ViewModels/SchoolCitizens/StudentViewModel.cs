@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using KretaBasicSchoolSystem.Desktop.Models;
+using Kreta.Shared.Models;
 using KretaBasicSchoolSystem.Desktop.Service;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 using System.Collections.Generic;
