@@ -1,8 +1,8 @@
 ﻿using Kreta.Shared.Enums;
 
-namespace Kreta.Shared.Models
+namespace Kreta.Shared.Dtos
 {
-    public class Student
+    public class StudentDto
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
@@ -12,9 +12,9 @@ namespace Kreta.Shared.Models
         public SchoolClassType SchoolClass { get; set; }
         public string EducationLevel { get; set; }
 
-        public Student(Guid id,string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
+        public StudentDto(Guid id, string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
         {
-            Id=id;
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             BirthsDay = birthsDay;
@@ -23,18 +23,7 @@ namespace Kreta.Shared.Models
             EducationLevel = educationLevel;
         }
 
-        public Student(string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
-        {
-            Id=Guid.NewGuid();
-            FirstName = firstName;
-            LastName = lastName;
-            BirthsDay = birthsDay;
-            SchoolYear = schoolYear;
-            SchoolClass = schoolClass;
-            EducationLevel = educationLevel;
-        }
-
-        public Student()
+        public StudentDto()
         {
             Id = Guid.NewGuid();
             FirstName = string.Empty;
@@ -43,11 +32,6 @@ namespace Kreta.Shared.Models
             SchoolYear = 9;
             SchoolClass = SchoolClassType.ClassA;
             EducationLevel = string.Empty;
-        }
-
-        public override string ToString()
-        {
-            return $"{Id} {LastName} {FirstName} ({SchoolYear}.{SchoolClass}) - ({String.Format("{0:yyyy.MM.dd.}", BirthsDay)}) ({EducationLevel})";
         }
     }
 }
