@@ -1,6 +1,6 @@
-﻿using Kreata.Backend.Datas.Entities;
-using Kreata.Backend.Datas.Responses;
-using Kreata.Backend.Repos;
+﻿using Kreata.Backend.Repos;
+using Kreta.Shared.Extensions;
+using Kreta.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kreata.Backend.Controllers
@@ -24,7 +24,7 @@ namespace Kreata.Backend.Controllers
             {
                 entity = await _studentRepo.GetBy(id);
                 if (entity!=null) 
-                    return Ok(entity);
+                    return Ok(entity.ToStudentDto());
             }
             return BadRequest("Az adatok elérhetetlenek!");
         }
