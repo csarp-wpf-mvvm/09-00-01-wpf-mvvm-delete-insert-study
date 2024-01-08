@@ -37,7 +37,7 @@ namespace Kreata.Backend.Controllers
             if (_studentRepo != null)
             {
                 users = await _studentRepo.GetAll();
-                return Ok(users);
+                return Ok(users.Select(student => student.ToStudentDto()));
             }
             return BadRequest("Az adatok elérhetetlenek!");
         }
