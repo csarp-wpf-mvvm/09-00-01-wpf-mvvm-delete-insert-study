@@ -1,7 +1,7 @@
-﻿namespace Kreta.Shared.Models
-{
-    public enum SchoolClassType { ClassA, ClassB, ClassC }
+﻿using Kreta.Shared.Enums;
 
+namespace Kreta.Shared.Models
+{
     public class Student
     {
         public string FirstName { get; set; }
