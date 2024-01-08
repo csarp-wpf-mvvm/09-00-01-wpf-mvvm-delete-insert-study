@@ -1,6 +1,8 @@
 ﻿using Kreata.Backend.Repos;
+using Kreta.Shared.Dtos;
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
+using Kreta.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kreata.Backend.Controllers
@@ -43,12 +45,12 @@ namespace Kreata.Backend.Controllers
         }
 
         [HttpPut()]
-        public async Task<ActionResult> UpdateStudentAsync(Student entity)
+        public async Task<ActionResult> UpdateStudentAsync(StudentDto entity)
         {
             ControllerResponse response = new();
             if (_studentRepo is not null)
             {
-                response = await _studentRepo.UpdateStudentAsync(entity);
+                response = await _studentRepo.UpdateStudentAsync(entity.ToStudent());
                 if (response.HasError)
                 {
                     return BadRequest(response);
