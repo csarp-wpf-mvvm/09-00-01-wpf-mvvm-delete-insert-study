@@ -35,7 +35,8 @@ namespace KretaBasicSchoolSystem.Desktop.Service
 
         public Task<ControllerResponse> Update(StudentDto studentDto)
         {
-            throw new System.NotImplementedException();
+            ControllerResponse defaultResponse = new();
+            return defaultResponse;
         }
     }
 }
