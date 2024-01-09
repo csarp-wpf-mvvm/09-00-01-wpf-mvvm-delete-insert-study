@@ -42,7 +42,7 @@ namespace KretaBasicSchoolSystem.Desktop.Service
             {
                 try
                 {
-                    HttpResponseMessage httpResponse = await _httpClient.PostAsJsonAsync("api/Student", studentDto);
+                    HttpResponseMessage httpResponse = await _httpClient.PutAsJsonAsync("api/Student", studentDto);
                     string content = await httpResponse.Content.ReadAsStringAsync();
                     ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
                     if (response is not null)
