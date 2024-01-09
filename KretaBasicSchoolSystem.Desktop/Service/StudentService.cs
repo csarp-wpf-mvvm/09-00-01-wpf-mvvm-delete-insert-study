@@ -2,6 +2,7 @@
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,14 +35,16 @@ namespace KretaBasicSchoolSystem.Desktop.Service
             return new List<Student>();
         }
 
-        public Task<ControllerResponse> Update(StudentDto studentDto)
+        public async Task<ControllerResponse> Update(StudentDto studentDto)
         {
             ControllerResponse defaultResponse = new();
             if (_httpClient is not null)
             {
                 try
                 {
-
+                    HttpResponseMessage httpResponse = await _httpClient.PostAsJsonAsync("api/Student", studentDto);
+                    string content = await httpResponse.Content.ReadAsStringAsync();
+                    ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
                 }
                 catch (Exception ex)
                 {
