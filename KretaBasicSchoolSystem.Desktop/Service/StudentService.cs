@@ -1,6 +1,7 @@
 ﻿using Kreta.Shared.Dtos;
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
+using Kreta.Shared.Responses;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -30,6 +31,11 @@ namespace KretaBasicSchoolSystem.Desktop.Service
                     return result.Select(studentDto => studentDto.ToStudent()).ToList();
             }
             return new List<Student>();
+        }
+
+        public Task<ControllerResponse> Update(StudentDto studentDto)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
