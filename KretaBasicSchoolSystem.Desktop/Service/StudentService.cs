@@ -61,7 +61,8 @@ namespace KretaBasicSchoolSystem.Desktop.Service
                 {
                     Console.WriteLine($"{ex.Message}");
                 }
-            }     
+            }
+            defaultResponse.ClearAndAddError("Az adatok frissítés nem lehetséges!");
             return defaultResponse;
         }
     }
