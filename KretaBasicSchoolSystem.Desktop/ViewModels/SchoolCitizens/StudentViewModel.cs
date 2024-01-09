@@ -1,10 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
+using Kreta.Shared.Responses;
 using KretaBasicSchoolSystem.Desktop.Service;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
@@ -49,9 +52,13 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         }
 
         [RelayCommand]
-        public void DoSave(Student newStudent)
+        public async Task DoSave(Student newStudent)
         {
-            Students.Add(newStudent);
+            if (_studentService is not null)
+            {
+                ControllerResponse result = await _studentService.Update(newStudent.ToStudentDto());
+                await UpdateView();
+            }
             OnPropertyChanged(nameof(Students));
         }
 
@@ -70,11 +77,16 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 
         public override async Task InitializeAsync()
         {
+            await UpdateView();
+        }
+
+        private async Task UpdateView()
+        {
             if (_studentService is not null)
             {
                 List<Student> students = await _studentService.SelectAllStudent();
                 Students = new ObservableCollection<Student>(students);
-            }                   
+            }
         }
     }
 }
