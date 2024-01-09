@@ -2,6 +2,7 @@
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -36,6 +37,17 @@ namespace KretaBasicSchoolSystem.Desktop.Service
         public Task<ControllerResponse> Update(StudentDto studentDto)
         {
             ControllerResponse defaultResponse = new();
+            if (_httpClient is not null)
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message}");
+                }
+            }     
             return defaultResponse;
         }
     }
