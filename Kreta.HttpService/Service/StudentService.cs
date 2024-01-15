@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace KretaBasicSchoolSystem.Desktop.Service
+namespace Kreta.HttpService.Service
 {
     public class StudentService : IStudentService
     {

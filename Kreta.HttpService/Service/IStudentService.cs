@@ -4,7 +4,7 @@ using Kreta.Shared.Responses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KretaBasicSchoolSystem.Desktop.Service
+namespace Kreta.HttpService.Service
 {
     public interface IStudentService
     {
