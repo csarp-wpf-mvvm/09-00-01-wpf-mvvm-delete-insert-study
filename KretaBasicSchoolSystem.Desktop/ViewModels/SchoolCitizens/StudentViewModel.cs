@@ -56,7 +56,10 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
             if (_studentService is not null)
             {
                 ControllerResponse result = await _studentService.Update(newStudent.ToStudentDto());
-                await UpdateView();
+                if (!result.HasError)
+                {
+                    await UpdateView();
+                }
             }
             OnPropertyChanged(nameof(Students));
         }
