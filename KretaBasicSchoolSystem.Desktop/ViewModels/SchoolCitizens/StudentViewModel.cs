@@ -16,10 +16,10 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         private readonly IStudentService? _studentService;
 
         [ObservableProperty]
-        private ObservableCollection<string> _educationLevels = new ObservableCollection<string>(new EducationLevels().AllEducationLevels);
+        private ObservableCollection<string> _educationLevels = new(new EducationLevels().AllEducationLevels);
 
         [ObservableProperty]
-        private ObservableCollection<Student> _students = new ObservableCollection<Student>();
+        private ObservableCollection<Student> _students = new();
 
         [ObservableProperty]
         private Student _selectedStudent;
