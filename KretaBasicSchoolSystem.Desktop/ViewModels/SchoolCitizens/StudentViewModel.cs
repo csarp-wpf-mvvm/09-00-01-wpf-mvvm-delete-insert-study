@@ -1,13 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Kreta.HttpService.Service;
 using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
-using KretaBasicSchoolSystem.Desktop.Service;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
