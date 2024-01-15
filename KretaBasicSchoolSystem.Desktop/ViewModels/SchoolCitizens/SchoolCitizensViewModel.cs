@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using KretaBasicSchoolSystem.Desktop.Service;
+using Kreta.HttpService.Service;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
