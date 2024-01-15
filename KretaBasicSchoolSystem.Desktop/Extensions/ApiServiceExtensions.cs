@@ -1,4 +1,4 @@
-﻿using KretaBasicSchoolSystem.Desktop.Service;
+﻿using Kreta.HttpService.Service;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KretaBasicSchoolSystem.Desktop.Extensions
