@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kreta.HttpService\Kreta.HttpService.csproj" />
     <ProjectReference Include="..\Kreta.Shared\Kreta.Shared.csproj" />
   </ItemGroup>
 
