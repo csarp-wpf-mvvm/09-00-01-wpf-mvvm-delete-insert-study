@@ -8,9 +8,9 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
 {
     public partial class SchoolCitizensViewModel : BaseViewModel
     {
-        private StudentViewModel _studentViewModel;
-        private ParentViewModel _parentViewModel;
-        private TeacherViewModel _teacherViewModel;
+        private readonly StudentViewModel _studentViewModel;
+        private readonly ParentViewModel _parentViewModel;
+        private readonly TeacherViewModel _teacherViewModel;
 
         public SchoolCitizensViewModel()
         {
