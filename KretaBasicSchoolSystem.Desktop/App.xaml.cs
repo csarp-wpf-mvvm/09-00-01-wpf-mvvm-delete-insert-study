@@ -14,8 +14,8 @@ namespace KretaBasicSchoolSystem.Desktop
     /// </summary>
     public partial class App : Application
     {
-        private bool _loginPage = false;
-        private IHost host;
+        private readonly bool _loginPage = false;
+        private readonly IHost host;
 
         public App()
         {
