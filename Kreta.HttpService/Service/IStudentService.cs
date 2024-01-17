@@ -10,5 +10,7 @@ namespace Kreta.HttpService.Service
     {
         public Task<List<Student>> SelectAllStudent();
         public Task<ControllerResponse> Update(StudentDto studentDto);
+        public Task<ControllerResponse> DeleteAsync(Guid id);
+        public Task<ControllerResponse> InsertAsync(Student student);
     }
 }
