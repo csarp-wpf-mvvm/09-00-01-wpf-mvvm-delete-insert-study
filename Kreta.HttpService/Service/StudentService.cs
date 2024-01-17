@@ -58,6 +58,11 @@ namespace Kreta.HttpService.Service
                     {
                         httpResponse.EnsureSuccessStatusCode();
                     }
+                    else
+                    {
+                        return defaultResponse;
+                    }
+
                 }
                 catch (Exception ex)
                 {
