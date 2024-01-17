@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -43,18 +44,15 @@ namespace Kreta.HttpService.Service
                 try
                 {
                     HttpResponseMessage httpResponse = await _httpClient.PutAsJsonAsync("api/Student", studentDto);
-                    string content = await httpResponse.Content.ReadAsStringAsync();
-                    ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
-                    if (response is not null)
+                    if (httpResponse.StatusCode == HttpStatusCode.BadRequest)
                     {
-                        if (response.IsSuccess)
+                        string content = await httpResponse.Content.ReadAsStringAsync();
+                        ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
+                        if (response is null)
                         {
-                            return defaultResponse;
+                            defaultResponse.ClearAndAddError("A törlés http kérés hibát okozott!");
                         }
-                        else
-                        {
-                            Console.WriteLine($"{response.Error}");
-                        }
+                        else return response;
                     }
                 }
                 catch (Exception ex)
