@@ -5,8 +5,10 @@ namespace Kreata.Backend.Repos
 {
     public interface IStudentRepo
     {
-        Task<List<Student>> GetAll();
-        Task<Student?> GetBy(Guid id);
+        Task<List<Student>> GetAllAsync();
+        Task<Student?> GetByIdAsync(Guid id);
         Task<ControllerResponse> UpdateStudentAsync(Student student);
+        Task<ControllerResponse> DeleteStudentAsync(Guid id);
+        Task<ControllerResponse> InsertStudentAsync(Student student);
     }
 }
