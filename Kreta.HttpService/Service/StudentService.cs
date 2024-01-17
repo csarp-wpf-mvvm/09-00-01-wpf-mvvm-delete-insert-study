@@ -72,5 +72,42 @@ namespace Kreta.HttpService.Service
             defaultResponse.ClearAndAddError("Az adatok frissítés nem lehetséges!");
             return defaultResponse;
         }
+
+        public async Task<ControllerResponse> DeleteAsync(Guid id)
+        {
+            ControllerResponse defaultResponse = new();
+            if (_httpClient is not null)
+            {
+                try
+                {
+                    HttpResponseMessage httpResponse = await _httpClient.DeleteAsync($"api/Student/{id}");
+                    if (httpResponse.StatusCode == HttpStatusCode.BadRequest)
+                    {
+                        string content = await httpResponse.Content.ReadAsStringAsync();
+                        ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
+                        if (response is null)
+                        {
+                            defaultResponse.ClearAndAddError("A törlés http kérés hibát okozott!");
+                        }
+                        else return response;
+                    }
+                    else if (!httpResponse.IsSuccessStatusCode)
+                    {
+                        httpResponse.EnsureSuccessStatusCode();
+                    }
+                    else
+                    {
+                        return defaultResponse;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message}");
+                }
+            }
+            defaultResponse.ClearAndAddError("Az adatok törlés nem lehetséges!");
+            return defaultResponse;
+        }
+
     }
 }
