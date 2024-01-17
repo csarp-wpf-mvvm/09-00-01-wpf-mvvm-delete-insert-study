@@ -24,7 +24,7 @@ namespace Kreata.Backend.Controllers
             Student? entity = new();
             if (_studentRepo is not null)
             {
-                entity = await _studentRepo.GetBy(id);
+                entity = await _studentRepo.GetByIdAsync(id);
                 if (entity!=null) 
                     return Ok(entity.ToStudentDto());
             }
@@ -38,7 +38,7 @@ namespace Kreata.Backend.Controllers
 
             if (_studentRepo != null)
             {
-                users = await _studentRepo.GetAll();
+                users = await _studentRepo.GetAllAsync();
                 return Ok(users.Select(student => student.ToStudentDto()));
             }
             return BadRequest("Az adatok elérhetetlenek!");
@@ -61,6 +61,49 @@ namespace Kreata.Backend.Controllers
                 }
             }
             response.ClearAndAddError("Az adatok frissítés nem lehetséges!");
+            return BadRequest(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteStudendAsync(Guid id)
+        {
+            ControllerResponse response = new();
+            if (_studentRepo is not null)
+            {
+                response = await _studentRepo.DeleteStudentAsync(id);
+
+                if (response.HasError)
+                {
+                    Console.WriteLine(response.Error);
+                    response.ClearAndAddError("A diák adatainak törlése nem sikerült!");
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            response.ClearAndAddError("Az adatok törlése nem lehetséges!");
+            return BadRequest(response);
+        }
+
+        [HttpPost()]
+        public async Task<IActionResult> InsertStudentAsync(StudentDto student)
+        {
+            ControllerResponse response = new();
+            if (_studentRepo is not null)
+            {
+                response = await _studentRepo.InsertStudentAsync(student.ToStudent());
+                if (response.HasError)
+                {
+                    Console.WriteLine(response.Error);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            response.ClearAndAddError("Az új adatok mentése nem lehetséges!");
             return BadRequest(response);
         }
     }
