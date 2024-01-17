@@ -61,7 +61,6 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
                     await UpdateView();
                 }
             }
-            OnPropertyChanged(nameof(Students));
         }
 
         [RelayCommand]
@@ -71,10 +70,16 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         }
 
         [RelayCommand]
-        public void DoRemove(Student studentToDelete)
+        public async Task DoRemove(Student studentToDelete)
         {
-            Students.Remove(studentToDelete);
-            OnPropertyChanged(nameof(Students));
+            if (_studentService is not null)
+            {
+                ControllerResponse result = await _studentService.DeleteAsync(studentToDelete.Id);
+                if (!result.HasError)
+                {
+                    await UpdateView();
+                }
+            }
         }
 
         public override async Task InitializeAsync()
