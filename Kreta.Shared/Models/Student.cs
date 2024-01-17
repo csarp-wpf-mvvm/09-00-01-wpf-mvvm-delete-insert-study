@@ -12,6 +12,8 @@ namespace Kreta.Shared.Models
         public SchoolClassType SchoolClass { get; set; }
         public string EducationLevel { get; set; }
 
+        public bool HasId => Id != Guid.Empty;
+
         public Student(Guid id,string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel)
         {
             Id=id;
