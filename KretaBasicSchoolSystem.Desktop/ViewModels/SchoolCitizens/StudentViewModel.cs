@@ -7,6 +7,7 @@ using Kreta.Shared.Responses;
 using KretaBasicSchoolSystem.Desktop.ViewModels.Base;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Threading.Tasks;
 
 namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
@@ -55,7 +56,12 @@ namespace KretaBasicSchoolSystem.Desktop.ViewModels.SchoolCitizens
         {
             if (_studentService is not null)
             {
-                ControllerResponse result = await _studentService.Update(newStudent.ToStudentDto());
+                ControllerResponse result = new();
+                if (newStudent.HasId)
+                    result = await _studentService.Update(newStudent.ToStudentDto());
+                else
+                    result = await _studentService.InsertAsync(newStudent);
+
                 if (!result.HasError)
                 {
                     await UpdateView();
